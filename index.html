@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maruthi Prasad Bantu | Automotive Engineer</title>
+    <style>
+        /* --- RESET & BASE STYLES --- */
+        :root {
+            --primary: #003366; /* Engineering Blue */
+            --accent: #FF4500;  /* Automotive Red */
+            --bg: #F4F4F4;
+            --text: #333;
+            --card-bg: #fff;
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg);
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3 { color: var(--primary); margin-bottom: 0.5rem; }
+        p { margin-bottom: 1rem; }
+        a { text-decoration: none; color: var(--primary); font-weight: bold; }
+        
+        /* --- LAYOUT UTILITIES --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section { padding: 60px 0; }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: var(--primary);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        .hero h1 { color: white; font-size: 2.5rem; }
+        .hero p { font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto 20px; }
+        
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .btn:hover { background: #cc3700; }
+
+        /* --- SKILLS GRID --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .skill-card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+            border-top: 4px solid var(--accent);
+        }
+
+        /* --- PROJECT SECTION --- */
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        @media (min-width: 768px) {
+            .project-card { flex-direction: row; align-items: center; }
+            .project-img { width: 40%; height: 300px; }
+            .project-content { width: 60%; padding: 40px; }
+        }
+
+        .project-img {
+            background-color: #ddd; /* Placeholder color */
+            height: 200px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-weight: bold;
+        }
+        
+        /* If you have images, replace the background-color logic with actual <img> tags */
+        .project-content { padding: 20px; }
+        
+        .tag {
+            background: #eee;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 5px;
+            display: inline-block;
+        }
+
+        /* --- CONTACT --- */
+        .contact { text-align: center; background: white; }
+        
+        /* --- FOOTER --- */
+        footer {
+            background: #222;
+            color: #888;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="container">
+            <h1>Maruthi Prasad Bantu</h1>
+            <p>Automotive Engineer | NVH Specialist | Process Optimization</p>
+            <p>M.Sc. Automotive Engineering (UK) | Ex-BMW MINI Quality Engineer</p>
+            <br>
+            <a href="YOUR_RESUME_LINK.pdf" class="btn">Download Resume</a>
+            <a href="https://linkedin.com/in/YOUR_PROFILE" class="btn" style="background: transparent; border: 2px solid white; margin-left: 10px;">LinkedIn</a>
+        </div>
+    </header>
+
+    <section id="skills">
+        <div class="container">
+            <h2>Technical Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Simulation (CAE)</h3>
+                    <p>LS-Dyna, ANSYS Fluent, Hypermesh, SolidWorks</p>
+                </div>
+                <div class="skill-card">
+                    <h3>NVH & Testing</h3>
+                    <p>Acoustic Analysis, FFT (Python), Vibration Diagnostics</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Quality & Data</h3>
+                    <p>GD&T, Root Cause Analysis, Python (Pandas), MATLAB</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" style="background: #e9ecef;">
+        <div class="container">
+            <h2>Featured Engineering Projects</h2>
+
+            <div class="project-card">
+                <div class="project-img">
+                    [Insert LS-Dyna Stress Contour Image]
+                </div>
+                <div class="project-content">
+                    <h3>Crashworthiness of EV Battery Module</h3>
+                    <p><strong>Challenge:</strong> Ensure battery integrity under high-velocity impact.</p>
+                    <p><strong>Solution:</strong> Modeled a 110kg battery tray in SolidWorks and simulated impact in LS-Dyna. Optimized enclosure geometry.</p>
+                    <p><strong>Result:</strong> Reduced side impact deflection by 96% (256mm to 9.3mm). Validated at 13.86 mm/ms.</p>
+                    <br>
+                    <span class="tag">LS-Dyna</span> <span class="tag">SolidWorks</span> <span class="tag">Impact Analysis</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-img">
+                    [Insert Frequency Response Graph]
+                </div>
+                <div class="project-content">
+                    <h3>NVH Acoustic Analysis (Audi A3)</h3>
+                    <p><strong>Challenge:</strong> Reduce cabin noise caused by powertrain gear whine.</p>
+                    <p><strong>Solution:</strong> Instrumented vehicle with accelerometers. Performed FFT analysis using Python to identify noise frequencies.</p>
+                    <p><strong>Result:</strong> Optimized damping materials, shifting noise frequency from 87.6Hz to 67.9Hz (improved comfort zone).</p>
+                    <br>
+                    <span class="tag">Python</span> <span class="tag">NVH</span> <span class="tag">Signal Processing</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-img">
+                    [Insert CFD Velocity Streamline Image]
+                </div>
+                <div class="project-content">
+                    <h3>Aerodynamic Optimization (CFD)</h3>
+                    <p><strong>Challenge:</strong> Improve aerofoil performance for a race vehicle.</p>
+                    <p><strong>Solution:</strong> Simulated airflow in a virtual wind tunnel using ANSYS Fluent.</p>
+                    <p><strong>Result:</strong> Achieved 20% improvement in aerodynamic efficiency through iterative design.</p>
+                    <br>
+                    <span class="tag">ANSYS Fluent</span> <span class="tag">CFD</span> <span class="tag">Aerodynamics</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="container">
+            <h2>Ready to Optimize Your Engineering Team?</h2>
+            <p>Available for immediate joining in Hyderabad, India.</p>
+            <br>
+            <a href="mailto:bantumaruthiprasad@gmail.com" class="btn">Contact Me</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Maruthi Prasad Bantu. Built for Performance.</p>
+    </footer>
+
+</body>
+</html>
