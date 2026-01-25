@@ -25,11 +25,9 @@
 
         /* --- TYPOGRAPHY --- */
         h1, h2, h3 { color: var(--primary); margin-bottom: 0.5rem; }
-        h4 { color: var(--accent); margin-bottom: 0.2rem; font-size: 1.1rem; }
+        h4 { color: #555; margin-bottom: 0.2rem; font-size: 1.1rem; font-weight: 600; }
         p { margin-bottom: 1rem; }
         a { text-decoration: none; color: var(--primary); font-weight: bold; }
-        ul { list-style-position: inside; margin-bottom: 1rem; }
-        li { margin-bottom: 0.5rem; }
         
         /* --- LAYOUT UTILITIES --- */
         .container {
@@ -83,24 +81,51 @@
             border-top: 4px solid var(--accent);
         }
 
-        /* --- EXPERIENCE SECTION (NEW) --- */
+        /* --- EXPERIENCE SECTION (UPDATED) --- */
         .exp-card {
             background: var(--card-bg);
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             margin-bottom: 20px;
-            border-left: 5px solid var(--primary);
+            border-left: 5px solid var(--accent); /* Orange accent for experience */
         }
         .exp-header {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             flex-wrap: wrap;
             margin-bottom: 15px;
             border-bottom: 1px solid #eee;
             padding-bottom: 10px;
         }
-        .date { color: #666; font-style: italic; }
+        .exp-header h3 { margin: 0; font-size: 1.3rem; }
+        .date { 
+            background: #eee; 
+            padding: 4px 10px; 
+            border-radius: 20px; 
+            font-size: 0.85rem; 
+            font-weight: bold; 
+            color: #555;
+        }
+        
+        /* The Inline Dot Style */
+        .inline-list {
+            line-height: 1.8;
+            color: #444;
+        }
+        .inline-item {
+            display: inline;
+        }
+        .inline-item::after {
+            content: " • ";
+            color: var(--accent);
+            font-weight: bold;
+            margin: 0 8px;
+        }
+        .inline-item:last-child::after {
+            content: ""; /* Remove dot after last item */
+        }
 
         /* --- PROJECT SECTION --- */
         .project-card {
@@ -113,7 +138,6 @@
             flex-direction: column;
         }
         
-        /* Image Handling */
         .project-img {
             width: 100%;
             height: 250px;
@@ -206,33 +230,33 @@
             <div class="exp-card">
                 <div class="exp-header">
                     <div>
-                        <h3>Process Improvement Engineer (Contract)</h3>
-                        <h4>Ricks Vegetarian Ltd | Oxford, UK</h4>
+                        <h3>Quality Control Engineer (Contract)</h3>
+                        <h4>BMW MINI Plant | Oxford, UK</h4>
                     </div>
                     <span class="date">Jan 2025 – Jan 2026</span>
                 </div>
-                <ul>
-                    <li>Re-engineered facility floor layout using time-motion studies, reducing service cycle time by <strong>65% (18 min to 7 min)</strong>.</li>
-                    <li>Analyzed inventory data to identify wastage patterns, reducing Cost of Goods Sold (COGS) from <strong>57% to 31%</strong>.</li>
-                    <li>Implemented labor forecasting models based on demand KPIs, cutting labor costs by <strong>37%</strong>.</li>
-                    <li>Authored Standard Operating Procedures (SOPs) for equipment handling and safety compliance.</li>
-                </ul>
+                <div class="inline-list">
+                    <span class="inline-item">Inspected BIW (Body in White) chassis points and pivot joints for dimensional accuracy on high-volume production line</span>
+                    <span class="inline-item">Detected and logged <strong>100+ non-conformities</strong> (misalignment, torque deviations) using GD&T tools</span>
+                    <span class="inline-item">Conducted Root Cause Analysis (8D) on recurring assembly defects, reducing line rework by <strong>15%</strong></span>
+                    <span class="inline-item">Verified torque settings and weld integrity against BMW engineering specifications</span>
+                </div>
             </div>
 
             <div class="exp-card">
                 <div class="exp-header">
                     <div>
-                        <h3>Quality Control Engineer (Contract)</h3>
-                        <h4>BMW MINI Plant | Oxford, UK</h4>
+                        <h3>Process Improvement Engineer (Contract)</h3>
+                        <h4>Ricks Vegetarian Ltd | Oxford, UK</h4>
                     </div>
                     <span class="date">Nov 2023 – Jan 2025</span>
                 </div>
-                <ul>
-                    <li>Inspected BIW (Body in White) chassis points and pivot joints for dimensional accuracy on high-volume production line.</li>
-                    <li>Detected and logged <strong>100+ non-conformities</strong> (misalignment, torque deviations) using GD&T tools.</li>
-                    <li>Conducting Root Cause Analysis (8D) on recurring assembly defects, reducing line rework by <strong>15%</strong>.</li>
-                    <li>Verified torque settings and weld integrity against BMW engineering specifications.</li>
-                </ul>
+                <div class="inline-list">
+                    <span class="inline-item">Re-engineered facility floor layout using time-motion studies, reducing service cycle time by <strong>65%</strong></span>
+                    <span class="inline-item">Analyzed inventory data to identify wastage patterns, reducing Cost of Goods Sold (COGS) from <strong>57% to 31%</strong></span>
+                    <span class="inline-item">Implemented labor forecasting models based on demand KPIs, cutting labor costs by <strong>37%</strong></span>
+                    <span class="inline-item">Authored Standard Operating Procedures (SOPs) for equipment handling and safety compliance</span>
+                </div>
             </div>
             
             <div class="exp-card">
@@ -243,10 +267,10 @@
                     </div>
                     <span class="date">Sep 2021 – Jun 2022</span>
                 </div>
-                <ul>
-                    <li>Automated 50+ test cases using Tricentis Tosca and Selenium for banking application backend.</li>
-                    <li>Identified and resolved 100+ software bugs; validated fixes through regression testing.</li>
-                </ul>
+                <div class="inline-list">
+                    <span class="inline-item">Automated 50+ test cases using Tricentis Tosca and Selenium for banking application backend</span>
+                    <span class="inline-item">Identified and resolved 100+ software bugs; validated fixes through regression testing</span>
+                </div>
             </div>
 
         </div>
