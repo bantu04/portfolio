@@ -21,7 +21,7 @@
             line-height: 1.6;
             color: var(--text);
             background-color: var(--bg);
-            overflow-x: hidden; /* Prevents horizontal scroll from animations */
+            overflow-x: hidden;
         }
 
         /* --- TYPOGRAPHY --- */
@@ -32,7 +32,7 @@
         
         /* Custom List Styling */
         ul { 
-            list-style: none; /* Remove default bullets */
+            list-style: none;
             padding-left: 0;
         }
         li { 
@@ -41,9 +41,8 @@
             margin-bottom: 0.8rem;
             color: #444;
         }
-        /* The Custom Dot */
         li::before {
-            content: "■"; /* Square dot */
+            content: "■";
             color: var(--accent);
             font-size: 0.8rem;
             position: absolute;
@@ -75,12 +74,25 @@
         .hero {
             background: var(--primary);
             color: white;
-            padding: 100px 0;
+            padding: 80px 0; /* Slightly reduced padding */
             text-align: center;
         }
-        .hero h1 { color: white; font-size: 2.5rem; margin-bottom: 10px; }
-        .hero p { font-size: 1.2rem; opacity: 0.9; max-width: 700px; margin: 0 auto 20px; }
+        .hero h1 { color: white; font-size: 2.5rem; margin-bottom: 5px; }
+        .hero p { font-size: 1.2rem; opacity: 0.9; max-width: 700px; margin: 0 auto; }
         
+        /* NEW: Contact Bar in Hero */
+        .hero-contact {
+            margin: 15px 0 25px 0;
+            font-size: 1rem;
+            color: #ccc;
+            font-weight: 500;
+        }
+        .hero-contact span {
+            margin: 0 10px;
+            display: inline-block;
+        }
+        .hero-contact i { color: var(--accent); margin-right: 5px; font-style: normal; }
+
         .btn {
             display: inline-block;
             background: var(--accent);
@@ -188,6 +200,7 @@
 
         /* --- CONTACT --- */
         .contact { text-align: center; background: white; }
+        .contact-details { margin-top: 20px; font-size: 1.1rem; color: #555; }
         
         /* --- FOOTER --- */
         footer {
@@ -206,6 +219,13 @@
             <h1>Maruthi Prasad Bantu</h1>
             <p><strong>Automotive Engineer | NVH & Quality Specialist</strong></p>
             <p>M.Sc. Automotive Engineering (UK) | Ex-BMW MINI Quality Engineer</p>
+            
+            <div class="hero-contact">
+                <span>📍 Hyderabad, India</span>
+                <span>📞 +91 9182957511</span>
+                <span>✉️ bantumaruthiprasad@gmail.com</span>
+            </div>
+
             <br>
             <a href="MARUTHI PRASAD BANTU.docx" class="btn" target="_blank">Download Resume</a>
             <a href="https://www.linkedin.com/in/maruthi-prasad-bantu/" class="btn btn-outline" target="_blank">LinkedIn Profile</a>
@@ -338,6 +358,9 @@
         <div class="container reveal">
             <h2>Ready to Optimize Your Engineering Team?</h2>
             <p>Available for immediate joining in Hyderabad, India.</p>
+            <div class="contact-details">
+                <p>📞 +91 9182957511 | ✉️ bantumaruthiprasad@gmail.com</p>
+            </div>
             <br>
             <a href="mailto:bantumaruthiprasad@gmail.com" class="btn">Contact Me via Email</a>
         </div>
@@ -348,7 +371,6 @@
     </footer>
 
     <script>
-        // This script triggers the animation when elements scroll into view
         window.addEventListener('scroll', reveal);
 
         function reveal() {
@@ -357,18 +379,13 @@
             for (var i = 0; i < reveals.length; i++) {
                 var windowHeight = window.innerHeight;
                 var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150; // The element becomes visible when it's 150px from bottom
+                var elementVisible = 150; 
 
                 if (elementTop < windowHeight - elementVisible) {
                     reveals[i].classList.add('active');
-                } else {
-                    // Optional: remove 'active' if you want it to fade out again when scrolling up
-                    // reveals[i].classList.remove('active');
                 }
             }
         }
-        
-        // Trigger once on load to show top elements
         reveal();
     </script>
 
