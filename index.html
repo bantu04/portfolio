@@ -21,6 +21,7 @@
             line-height: 1.6;
             color: var(--text);
             background-color: var(--bg);
+            overflow-x: hidden; /* Prevents horizontal scroll from animations */
         }
 
         /* --- TYPOGRAPHY --- */
@@ -28,6 +29,27 @@
         h4 { color: #555; margin-bottom: 0.2rem; font-size: 1.1rem; font-weight: 600; }
         p { margin-bottom: 1rem; }
         a { text-decoration: none; color: var(--primary); font-weight: bold; }
+        
+        /* Custom List Styling */
+        ul { 
+            list-style: none; /* Remove default bullets */
+            padding-left: 0;
+        }
+        li { 
+            position: relative; 
+            padding-left: 20px; 
+            margin-bottom: 0.8rem;
+            color: #444;
+        }
+        /* The Custom Dot */
+        li::before {
+            content: "■"; /* Square dot */
+            color: var(--accent);
+            font-size: 0.8rem;
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
         
         /* --- LAYOUT UTILITIES --- */
         .container {
@@ -37,6 +59,17 @@
         }
 
         section { padding: 60px 0; }
+
+        /* --- ANIMATION CLASSES --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         /* --- HERO SECTION --- */
         .hero {
@@ -81,14 +114,14 @@
             border-top: 4px solid var(--accent);
         }
 
-        /* --- EXPERIENCE SECTION (UPDATED) --- */
+        /* --- EXPERIENCE SECTION --- */
         .exp-card {
             background: var(--card-bg);
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             margin-bottom: 20px;
-            border-left: 5px solid var(--accent); /* Orange accent for experience */
+            border-left: 5px solid var(--accent);
         }
         .exp-header {
             display: flex;
@@ -107,24 +140,6 @@
             font-size: 0.85rem; 
             font-weight: bold; 
             color: #555;
-        }
-        
-        /* The Inline Dot Style */
-        .inline-list {
-            line-height: 1.8;
-            color: #444;
-        }
-        .inline-item {
-            display: inline;
-        }
-        .inline-item::after {
-            content: " • ";
-            color: var(--accent);
-            font-weight: bold;
-            margin: 0 8px;
-        }
-        .inline-item:last-child::after {
-            content: ""; /* Remove dot after last item */
         }
 
         /* --- PROJECT SECTION --- */
@@ -187,7 +202,7 @@
 <body>
 
     <header class="hero">
-        <div class="container">
+        <div class="container reveal">
             <h1>Maruthi Prasad Bantu</h1>
             <p><strong>Automotive Engineer | NVH & Quality Specialist</strong></p>
             <p>M.Sc. Automotive Engineering (UK) | Ex-BMW MINI Quality Engineer</p>
@@ -199,21 +214,21 @@
 
     <section id="skills">
         <div class="container">
-            <h2>Technical Expertise</h2>
+            <h2 class="reveal">Technical Expertise</h2>
             <div class="skills-grid">
-                <div class="skill-card">
+                <div class="skill-card reveal">
                     <h3>Simulation (CAE)</h3>
                     <p>LS-Dyna (Crash/Impact)</p>
                     <p>ANSYS Fluent (CFD)</p>
                     <p>Hypermesh & SolidWorks</p>
                 </div>
-                <div class="skill-card">
+                <div class="skill-card reveal">
                     <h3>NVH & Testing</h3>
                     <p>Acoustic Analysis</p>
                     <p>FFT Signal Processing</p>
                     <p>Vibration Diagnostics</p>
                 </div>
-                <div class="skill-card">
+                <div class="skill-card reveal">
                     <h3>Quality & Data</h3>
                     <p>GD&T & Dimensional Inspection</p>
                     <p>Root Cause Analysis (8D)</p>
@@ -225,9 +240,9 @@
 
     <section id="experience" style="background: #e3e8ee;">
         <div class="container">
-            <h2>Professional Experience</h2>
+            <h2 class="reveal">Professional Experience</h2>
             
-            <div class="exp-card">
+            <div class="exp-card reveal">
                 <div class="exp-header">
                     <div>
                         <h3>Quality Control Engineer (Contract)</h3>
@@ -235,15 +250,15 @@
                     </div>
                     <span class="date">Jan 2025 – Jan 2026</span>
                 </div>
-                <div class="inline-list">
-                    <span class="inline-item">Inspected BIW (Body in White) chassis points and pivot joints for dimensional accuracy on high-volume production line</span>
-                    <span class="inline-item">Detected and logged <strong>100+ non-conformities</strong> (misalignment, torque deviations) using GD&T tools</span>
-                    <span class="inline-item">Conducted Root Cause Analysis (8D) on recurring assembly defects, reducing line rework by <strong>15%</strong></span>
-                    <span class="inline-item">Verified torque settings and weld integrity against BMW engineering specifications</span>
-                </div>
+                <ul>
+                    <li>Inspected BIW (Body in White) chassis points and pivot joints for dimensional accuracy on high-volume production line.</li>
+                    <li>Detected and logged <strong>100+ non-conformities</strong> (misalignment, torque deviations) using GD&T tools.</li>
+                    <li>Conducted Root Cause Analysis (8D) on recurring assembly defects, reducing line rework by <strong>15%</strong>.</li>
+                    <li>Verified torque settings and weld integrity against BMW engineering specifications.</li>
+                </ul>
             </div>
 
-            <div class="exp-card">
+            <div class="exp-card reveal">
                 <div class="exp-header">
                     <div>
                         <h3>Process Improvement Engineer (Contract)</h3>
@@ -251,15 +266,15 @@
                     </div>
                     <span class="date">Nov 2023 – Jan 2025</span>
                 </div>
-                <div class="inline-list">
-                    <span class="inline-item">Re-engineered facility floor layout using time-motion studies, reducing service cycle time by <strong>65%</strong></span>
-                    <span class="inline-item">Analyzed inventory data to identify wastage patterns, reducing Cost of Goods Sold (COGS) from <strong>57% to 31%</strong></span>
-                    <span class="inline-item">Implemented labor forecasting models based on demand KPIs, cutting labor costs by <strong>37%</strong></span>
-                    <span class="inline-item">Authored Standard Operating Procedures (SOPs) for equipment handling and safety compliance</span>
-                </div>
+                <ul>
+                    <li>Re-engineered facility floor layout using time-motion studies, reducing service cycle time by <strong>65%</strong>.</li>
+                    <li>Analyzed inventory data to identify wastage patterns, reducing Cost of Goods Sold (COGS) from <strong>57% to 31%</strong>.</li>
+                    <li>Implemented labor forecasting models based on demand KPIs, cutting labor costs by <strong>37%</strong>.</li>
+                    <li>Authored Standard Operating Procedures (SOPs) for equipment handling and safety compliance.</li>
+                </ul>
             </div>
             
-            <div class="exp-card">
+            <div class="exp-card reveal">
                 <div class="exp-header">
                     <div>
                         <h3>Application Test Engineer</h3>
@@ -267,10 +282,10 @@
                     </div>
                     <span class="date">Sep 2021 – Jun 2022</span>
                 </div>
-                <div class="inline-list">
-                    <span class="inline-item">Automated 50+ test cases using Tricentis Tosca and Selenium for banking application backend</span>
-                    <span class="inline-item">Identified and resolved 100+ software bugs; validated fixes through regression testing</span>
-                </div>
+                <ul>
+                    <li>Automated 50+ test cases using Tricentis Tosca and Selenium for banking application backend.</li>
+                    <li>Identified and resolved 100+ software bugs; validated fixes through regression testing.</li>
+                </ul>
             </div>
 
         </div>
@@ -278,9 +293,9 @@
 
     <section id="projects" style="background: #fff;">
         <div class="container">
-            <h2>Featured Engineering Projects</h2>
+            <h2 class="reveal">Featured Engineering Projects</h2>
 
-            <div class="project-card">
+            <div class="project-card reveal">
                 <img src="battery1.png" alt="EV Battery Crash Simulation Mesh" class="project-img">
                 <div class="project-content">
                     <h3>Crashworthiness of EV Battery Module</h3>
@@ -292,7 +307,7 @@
                 </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card reveal">
                 <img src="Frequency.png" alt="NVH Frequency Response Graph" class="project-img">
                 <div class="project-content">
                     <h3>NVH Acoustic Analysis (Audi A3)</h3>
@@ -304,7 +319,7 @@
                 </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card reveal">
                 <img src="aerofoil.png" alt="CFD Velocity Streamlines" class="project-img">
                 <div class="project-content">
                     <h3>Aerodynamic Optimization (CFD)</h3>
@@ -320,7 +335,7 @@
     </section>
 
     <section class="contact" style="background: #f4f4f4;">
-        <div class="container">
+        <div class="container reveal">
             <h2>Ready to Optimize Your Engineering Team?</h2>
             <p>Available for immediate joining in Hyderabad, India.</p>
             <br>
@@ -331,6 +346,31 @@
     <footer>
         <p>&copy; 2026 Maruthi Prasad Bantu. Built for Performance.</p>
     </footer>
+
+    <script>
+        // This script triggers the animation when elements scroll into view
+        window.addEventListener('scroll', reveal);
+
+        function reveal() {
+            var reveals = document.querySelectorAll('.reveal');
+
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150; // The element becomes visible when it's 150px from bottom
+
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                } else {
+                    // Optional: remove 'active' if you want it to fade out again when scrolling up
+                    // reveals[i].classList.remove('active');
+                }
+            }
+        }
+        
+        // Trigger once on load to show top elements
+        reveal();
+    </script>
 
 </body>
 </html>
