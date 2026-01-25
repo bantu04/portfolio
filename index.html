@@ -25,8 +25,11 @@
 
         /* --- TYPOGRAPHY --- */
         h1, h2, h3 { color: var(--primary); margin-bottom: 0.5rem; }
+        h4 { color: var(--accent); margin-bottom: 0.2rem; font-size: 1.1rem; }
         p { margin-bottom: 1rem; }
         a { text-decoration: none; color: var(--primary); font-weight: bold; }
+        ul { list-style-position: inside; margin-bottom: 1rem; }
+        li { margin-bottom: 0.5rem; }
         
         /* --- LAYOUT UTILITIES --- */
         .container {
@@ -80,6 +83,25 @@
             border-top: 4px solid var(--accent);
         }
 
+        /* --- EXPERIENCE SECTION (NEW) --- */
+        .exp-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            border-left: 5px solid var(--primary);
+        }
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        .date { color: #666; font-style: italic; }
+
         /* --- PROJECT SECTION --- */
         .project-card {
             background: var(--card-bg);
@@ -95,12 +117,11 @@
         .project-img {
             width: 100%;
             height: 250px;
-            object-fit: cover; /* Ensures image covers area without stretching */
+            object-fit: cover;
             display: block;
             border-bottom: 1px solid #eee;
         }
         
-        /* Desktop Layout */
         @media (min-width: 768px) {
             .project-card { flex-direction: row; }
             .project-img { 
@@ -148,7 +169,6 @@
             <p>M.Sc. Automotive Engineering (UK) | Ex-BMW MINI Quality Engineer</p>
             <br>
             <a href="MARUTHI PRASAD BANTU.docx" class="btn" target="_blank">Download Resume</a>
-            
             <a href="https://www.linkedin.com/in/maruthi-prasad-bantu/" class="btn btn-outline" target="_blank">LinkedIn Profile</a>
         </div>
     </header>
@@ -179,13 +199,65 @@
         </div>
     </section>
 
-    <section id="projects" style="background: #e9ecef;">
+    <section id="experience" style="background: #e3e8ee;">
+        <div class="container">
+            <h2>Professional Experience</h2>
+            
+            <div class="exp-card">
+                <div class="exp-header">
+                    <div>
+                        <h3>Process Improvement Engineer (Contract)</h3>
+                        <h4>Ricks Vegetarian Ltd | Oxford, UK</h4>
+                    </div>
+                    <span class="date">Jan 2025 – Jan 2026</span>
+                </div>
+                <ul>
+                    <li>Re-engineered facility floor layout using time-motion studies, reducing service cycle time by <strong>65% (18 min to 7 min)</strong>.</li>
+                    <li>Analyzed inventory data to identify wastage patterns, reducing Cost of Goods Sold (COGS) from <strong>57% to 31%</strong>.</li>
+                    <li>Implemented labor forecasting models based on demand KPIs, cutting labor costs by <strong>37%</strong>.</li>
+                    <li>Authored Standard Operating Procedures (SOPs) for equipment handling and safety compliance.</li>
+                </ul>
+            </div>
+
+            <div class="exp-card">
+                <div class="exp-header">
+                    <div>
+                        <h3>Quality Control Engineer (Contract)</h3>
+                        <h4>BMW MINI Plant | Oxford, UK</h4>
+                    </div>
+                    <span class="date">Nov 2023 – Jan 2025</span>
+                </div>
+                <ul>
+                    <li>Inspected BIW (Body in White) chassis points and pivot joints for dimensional accuracy on high-volume production line.</li>
+                    <li>Detected and logged <strong>100+ non-conformities</strong> (misalignment, torque deviations) using GD&T tools.</li>
+                    <li>Conducting Root Cause Analysis (8D) on recurring assembly defects, reducing line rework by <strong>15%</strong>.</li>
+                    <li>Verified torque settings and weld integrity against BMW engineering specifications.</li>
+                </ul>
+            </div>
+            
+            <div class="exp-card">
+                <div class="exp-header">
+                    <div>
+                        <h3>Application Test Engineer</h3>
+                        <h4>Accenture Solutions | Hyderabad, India</h4>
+                    </div>
+                    <span class="date">Sep 2021 – Jun 2022</span>
+                </div>
+                <ul>
+                    <li>Automated 50+ test cases using Tricentis Tosca and Selenium for banking application backend.</li>
+                    <li>Identified and resolved 100+ software bugs; validated fixes through regression testing.</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="projects" style="background: #fff;">
         <div class="container">
             <h2>Featured Engineering Projects</h2>
 
             <div class="project-card">
                 <img src="battery1.png" alt="EV Battery Crash Simulation Mesh" class="project-img">
-                
                 <div class="project-content">
                     <h3>Crashworthiness of EV Battery Module</h3>
                     <p><strong>Challenge:</strong> Ensure battery integrity under high-velocity impact scenarios.</p>
@@ -198,7 +270,6 @@
 
             <div class="project-card">
                 <img src="Frequency.png" alt="NVH Frequency Response Graph" class="project-img">
-                
                 <div class="project-content">
                     <h3>NVH Acoustic Analysis (Audi A3)</h3>
                     <p><strong>Challenge:</strong> Mitigate cabin noise caused by powertrain gear whine and structure-borne vibration.</p>
@@ -211,7 +282,6 @@
 
             <div class="project-card">
                 <img src="aerofoil.png" alt="CFD Velocity Streamlines" class="project-img">
-                
                 <div class="project-content">
                     <h3>Aerodynamic Optimization (CFD)</h3>
                     <p><strong>Challenge:</strong> Improve aerofoil performance for a formula-style race vehicle.</p>
@@ -225,7 +295,7 @@
         </div>
     </section>
 
-    <section class="contact">
+    <section class="contact" style="background: #f4f4f4;">
         <div class="container">
             <h2>Ready to Optimize Your Engineering Team?</h2>
             <p>Available for immediate joining in Hyderabad, India.</p>
